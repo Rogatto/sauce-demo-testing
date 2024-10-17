@@ -18,7 +18,9 @@ jobs:
       matrix:
         node-version: [20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    env:
+      USERNAME: standard_user
+      PASSWORD: secret_sauce
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
