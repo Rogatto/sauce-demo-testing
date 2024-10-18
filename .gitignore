@@ -184,3 +184,8 @@ Temporary Items
 /cypress/screenshots/*
 /runner-results/*
 cypress.env.json
+
+### Allure Report ###
+
+/allure-results/*
+/allure-report/*

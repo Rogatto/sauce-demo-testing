@@ -1,6 +1,6 @@
+import { allureCypress } from "allure-cypress/reporter"
 import { defineConfig } from "cypress"
-import 'dotenv/config'
-import allureWriter from "@shelex/cypress-allure-plugin/writer"
+import "dotenv/config"
 
 export default defineConfig({
   video: true,
@@ -12,7 +12,9 @@ export default defineConfig({
   e2e: {
     baseUrl: "https://www.saucedemo.com",
     setupNodeEvents(on, config) {
-      allureWriter(on, config)
+      allureCypress(on, config, {
+        resultsDir: "allure-results",
+      });
       return config
     },
   },

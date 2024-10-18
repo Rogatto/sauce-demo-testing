@@ -1,3 +1,6 @@
 {
-  "lockedOutUserError": "Epic sadface: Sorry, this user has been locked out."
+  "lockedOutUserError": "Epic sadface: Sorry, this user has been locked out.",
+  "loggedInError": "Epic sadface: You can only access '/inventory.html' when you are logged in.",
+  "sucessfulPurchase": "Thank you for your order!",
+  "orderDispatched": "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
 }

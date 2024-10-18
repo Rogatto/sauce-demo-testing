@@ -5,10 +5,9 @@
   "scripts": {
     "e2e": "cypress run",
     "e2e:parallel": "cypress-parallel -s e2e -t 3 -d cypress/e2e",
-    "test:allure": "npm run e2e && npm run report:allure",
     "report:allure": "allure generate allure-results --clean -o allure-report && allure open  allure-report",
-    "lint": "eslint cypress/e2e/*.cy.ts",
-    "lint:fix": "eslint cypress/e2e/*.cy.ts --fix"
+    "lint": "npx eslint cypress/",
+    "lint:fix": "npx eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -21,12 +20,16 @@
   },
   "homepage": "https://github.com/Rogatto/sauce-demo-testing#readme",
   "devDependencies": {
-    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "@eslint/js": "^9.12.0",
+    "@types/eslint__js": "^8.42.3",
+    "allure-cypress": "^3.0.5",
     "cypress": "^13.15.0",
     "cypress-parallel": "^0.14.0",
     "dotenv": "^16.4.5",
+    "eslint": "^9.12.0",
     "eslint-plugin-cypress": "^4.0.0",
     "eslint-plugin-mocha": "^10.5.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.10.0"
   }
 }

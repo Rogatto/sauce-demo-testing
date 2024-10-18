@@ -1,26 +1,23 @@
+import * as allure from "allure-js-commons"
+
 describe('Add and delete items from the cart', () => {
-  before(() => {
+
+  beforeEach(() => {
+    allure.epic("SauceLabs Ecommerce")
+    allure.feature("Cart Management")
     cy.visit('/')
     cy.login(Cypress.env('USERNAME'),Cypress.env('PASSWORD'))
   })
 
-  it('Verify adding item to the cart', () => {
-    cy.visit('/')
-    cy.log('I run before every test in every spec file!!!!!!')
+  it('Verify adding new item to the cart', () => {
+    allure.story("Add product to the cart")
+    cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+    cy.get('[data-test="shopping-cart-link"]').click()
   })
 
-  it('Verify deleting item from the cart', () => {
-    cy.visit('/')
-    cy.log('I run before every test in every spec file!!!!!!')
-  })
-
-  it('Verify adding item to the cart with user who is gonna contains errors', () => {
-    cy.visit('/')
-    cy.log('I run before every test in every spec file!!!!!!')
-  })
-
-  it('Verify deleting item from the cart with user who is gonna contains errors', () => {
-    cy.visit('/')
-    cy.log('I run before every test in every spec file!!!!!!')
+  it('Verify delete item to the cart', () => {
+    allure.story("Delete product to the cart")
+    cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
+    cy.get('[data-test="shopping-cart-link"]').click()
   })
 })
