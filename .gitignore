@@ -181,5 +181,6 @@ Temporary Items
 ### Cypress ###
 
 /cypress/videos/*
+/cypress/screenshots/*
 /runner-results/*
 cypress.env.json

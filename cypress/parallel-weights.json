@@ -1,1 +1,1 @@
-{"cypress/e2e/add.delete.cart.spec.cy.ts":{"time":1617,"weight":9},"cypress/e2e/login.spec.cy.ts":{"time":1621,"weight":10}}
+{"cypress/e2e/add.delete.cart.spec.cy.ts":{"time":2674,"weight":4},"cypress/e2e/checkout.cart.spec.cy.ts":{"time":2022,"weight":3},"cypress/e2e/login.spec.cy.ts":{"time":13248,"weight":22}}

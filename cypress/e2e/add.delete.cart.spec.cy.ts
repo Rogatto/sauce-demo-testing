@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('Add and delete items from the cart', () => {
   before(() => {
     cy.visit('/')
     cy.login(Cypress.env('USERNAME'),Cypress.env('PASSWORD'))
