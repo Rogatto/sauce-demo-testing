@@ -14,6 +14,17 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       allureCypress(on, config, {
         resultsDir: "allure-results",
+        links: {
+          issue: {
+            nameTemplate: "Issue #%s",
+            urlTemplate: "https://github.com/Rogatto/sauce-demo-testing/issues/%s",
+          }
+        },
+        environmentInfo: {
+          host_web_application: "https://www.saucedemo.com",
+          version_application_version: "1.0.0",
+          environment: "development"
+        },
       });
       return config
     },
