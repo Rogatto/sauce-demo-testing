@@ -1,15 +1,8 @@
 # sauce-demo-testing
 
+## In order to run and use this project you must have nodeJS and npm installed:
 
-Automated Tests with Cypress (Main task)
-a. Load up https://www.saucedemo.com/ and get familiar with the application.
-b. Create at least 3 automated tests using Cypress:
-    i. Login: Utilize the example logins to test the implementation
-    ii. Data and Basket: Test the product pages and the basket logic
-    iii. Checkout: Test the checkout procedure
-c. Document your tests and results, including screenshots or videos of the test
-runs where possible.
-
+https://nodejs.org/en/download/package-manager
 
 ## Create .env file in the root directory
 
@@ -17,3 +10,43 @@ runs where possible.
 USERNAME=USERNAME_YOU_WANT
 PASSWORD=PASSWORD_YOU_WANT
 ```
+
+## How to run the automation
+
+### First install all dependencies:
+
+```
+npm install
+```
+
+###  Run the automation:
+
+Sequencial mode:
+
+```
+npm run e2e
+```
+
+Parallel mode:
+
+```
+npm run e2e:parallel
+```
+
+* obs: 1 scenario from login is expected to failed (Verifies user which contains problem on cart page). An issue was created in github, you can access it from _[/issues/](https://github.com/Rogatto/sauce-demo-testing/issues/5)_
+
+
+
+### Generate Allure Report:
+
+Before running the following command to generate allure report, you must install allure command line:
+
+```
+npm i allure-commandline
+```
+
+```
+npm run report:allure
+```
+
+![plot](allure-report-image.png)
