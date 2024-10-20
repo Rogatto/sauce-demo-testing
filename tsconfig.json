@@ -3,9 +3,9 @@
     "types": ["cypress", "node"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "target": "ES6",
-    "module": "ESNext"
+    "module": "NodeNext"
   }
 }

@@ -1,7 +1,6 @@
 import messages from "../fixtures/messages.json"
 import users from "../fixtures/users.json"
 import * as allure from "allure-js-commons"
-import { ContentType } from "allure-js-commons"
 const pathScreenshots = "cypress/screenshots/login.spec.cy.ts/"
 
 describe('Verifies login and logout funcionalities', () => {
@@ -18,10 +17,7 @@ describe('Verifies login and logout funcionalities', () => {
     cy.get('[data-test="inventory-container"]').should('be.visible')
 
     cy.screenshot(Cypress.env('USERNAME'))
-    allure.attachmentPath("Screenshot", `${pathScreenshots}${Cypress.env('USERNAME')}.png`, {
-      contentType: ContentType.PNG,
-      fileExtension: "png"
-    })
+    cy.allureAttachment(`${pathScreenshots}${Cypress.env('USERNAME')}.png`)
   })
 
   it('Verifies locked_out_user', () => {
@@ -31,10 +27,7 @@ describe('Verifies login and logout funcionalities', () => {
     cy.get('[data-test="error"]').contains(messages.lockedOutUserError)
 
     cy.screenshot(users.lockedOutUser)
-    allure.attachmentPath("Screenshot", `${pathScreenshots}${users.lockedOutUser}.png`, {
-      contentType: ContentType.PNG,
-      fileExtension: "png"
-    })
+    cy.allureAttachment(`${pathScreenshots}${users.lockedOutUser}.png`)
   })
 
   //We can improve this test by adding visual testing regression
@@ -43,7 +36,13 @@ describe('Verifies login and logout funcionalities', () => {
     allure.issue('5')
     cy.visit('/')
     cy.login(users.problemUser, Cypress.env('PASSWORD'))
+
+    //Verifies if image from a product has the right imahe
     cy.get('[data-test="inventory-item-sauce-labs-backpack-img"]').should('have.attr', 'src').should('include','/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg')
+
+    const productImageError = 'product-image-error'
+    cy.screenshot(productImageError)
+    cy.allureAttachment(`${pathScreenshots}${productImageError}.png`)
   })
 
   it('Verifies if user can direct access inventory page', () => {
@@ -53,10 +52,7 @@ describe('Verifies login and logout funcionalities', () => {
 
     const directAccessScreenShot = 'login-error-direct-access'
     cy.screenshot(directAccessScreenShot)
-    allure.attachmentPath("Screenshot", `${pathScreenshots}${directAccessScreenShot}.png`, {
-      contentType: ContentType.PNG,
-      fileExtension: "png"
-    })
+    cy.allureAttachment(`${pathScreenshots}${directAccessScreenShot}.png`)
   })
 
   it('Verifies if user logged in is able to perform the logout from the application', () => {
@@ -68,9 +64,6 @@ describe('Verifies login and logout funcionalities', () => {
 
     const logoutScreenShot = 'logout-screen-shot'
     cy.screenshot(logoutScreenShot)
-    allure.attachmentPath("Screenshot", `${pathScreenshots}${logoutScreenShot}.png`, {
-      contentType: ContentType.PNG,
-      fileExtension: "png"
-    })
+    cy.allureAttachment(`${pathScreenshots}${logoutScreenShot}.png`)
   })
 })

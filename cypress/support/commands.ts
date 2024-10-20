@@ -1,11 +1,16 @@
-declare namespace Cypress {
-    interface Chainable {
-      login(email: string, password: string): void
-      logout(): void
-      addProductsToCartRandomly(): void
-      addSpecifiedProductToCart(productName: string): void
-      fillCheckoutInformation(firstName: string, lastName: string, postalCode: string): void
-      allureAttachment(pathScreenshot: string): void
+import { ContentType } from "allure-js-commons"
+import * as allure from "allure-js-commons"
+
+declare global {
+    namespace Cypress {
+      interface Chainable {
+        login(email: string, password: string): void
+        logout(): void
+        addProductsToCartRandomly(): void
+        addSpecifiedProductToCart(productName: string): void
+        fillOutCheckoutInformation(firstName: string, lastName: string, postalCode: string): void
+        allureAttachment(pathScreenshot: string): void
+      }
     }
 }
 
@@ -30,8 +35,15 @@ Cypress.Commands.add('addSpecifiedProductToCart', (productName) => {
     cy.get('[data-test="add-to-cart"]').click()
 })
 
-Cypress.Commands.add('fillCheckoutInformation', (firstName, lastName, postalCode) => { 
+Cypress.Commands.add('fillOutCheckoutInformation', (firstName, lastName, postalCode) => { 
     cy.get('[data-test="firstName"]').type(firstName)
     cy.get('[data-test="lastName"]').type(lastName)
     cy.get('[data-test="postalCode"]').type(postalCode)
+})
+
+Cypress.Commands.add('allureAttachment', (pathToScreenShoot) => { 
+    allure.attachmentPath("Screenshot", pathToScreenShoot, {
+        contentType: ContentType.PNG,
+        fileExtension: "png"
+    })
 })

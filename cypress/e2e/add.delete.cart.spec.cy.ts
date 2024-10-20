@@ -1,5 +1,4 @@
 import * as allure from "allure-js-commons"
-import { ContentType } from "allure-js-commons"
 const pathScreenshots = "cypress/screenshots/add.delete.cart.spec.cy.ts/"
 
 describe('Add and delete items from the cart', () => {
@@ -40,30 +39,24 @@ describe('Add and delete items from the cart', () => {
       })
     })
 
-    const addingProductEvidence = 'add-product-evidence'
-    cy.screenshot(addingProductEvidence)
-    allure.attachmentPath("Screenshot", `${pathScreenshots}${addingProductEvidence}.png`, {
-      contentType: ContentType.PNG,
-      fileExtension: "png"
-    })
+    const addProductEvidence = 'add-product-evidence'
+    cy.screenshot(addProductEvidence)
+    cy.allureAttachment(`${pathScreenshots}${addProductEvidence}.png`)
   })
 
   it('Verify delete item to the cart', () => {
 
     allure.story("Delete product to the cart")
-    //cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click()
     cy.addSpecifiedProductToCart('Sauce Labs Backpack')
     cy.get('[data-test="shopping-cart-link"]').click()
     cy.get('[data-test="remove-sauce-labs-backpack"]').click()
 
+    //Verifies that product was removed from the cart
     cy.get('.removed_cart_item').should('exist')
     cy.get('[data-test="inventory-item"]').should('not.exist')
 
-    const addingProductEvidence = 'delete-product-evidence'
-    cy.screenshot(addingProductEvidence)
-    allure.attachmentPath("Screenshot", `${pathScreenshots}${addingProductEvidence}.png`, {
-      contentType: ContentType.PNG,
-      fileExtension: "png"
-    })
+    const deleteProductEvidence = 'delete-product-evidence'
+    cy.screenshot(deleteProductEvidence)
+    cy.allureAttachment(`${pathScreenshots}${deleteProductEvidence}.png`)
   })
 })
