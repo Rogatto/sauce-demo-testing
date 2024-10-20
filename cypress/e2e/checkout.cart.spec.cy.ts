@@ -1,6 +1,5 @@
-import { ContentType } from "allure-js-commons"
-import messages from "../fixtures/messages.json"
 import * as allure from "allure-js-commons"
+import messages from "../fixtures/messages.json"
 import { faker } from "@faker-js/faker"
 const pathScreenshots = "cypress/screenshots/checkout.cart.spec.cy.ts/"
 
@@ -36,7 +35,7 @@ describe('Checkout a new cart with products', () => {
 
     //Go to checkout page and fill in personal information randomly
     cy.get('[data-test="checkout"]').click()
-    cy.fillCheckoutInformation(
+    cy.fillOutCheckoutInformation(
             faker.person.firstName(), 
             faker.person.lastName(),
             faker.location.zipCode())
@@ -89,9 +88,6 @@ describe('Checkout a new cart with products', () => {
     cy.get('[data-test="complete-text"]').contains(messages.orderDispatched)
 
     cy.screenshot(messages.sucessfulPurchase)
-    allure.attachmentPath("Screenshot", `${pathScreenshots}${messages.sucessfulPurchase}.png`, {
-      contentType: ContentType.PNG,
-      fileExtension: "png"
-    })
+    cy.allureAttachment(`${pathScreenshots}${messages.sucessfulPurchase}.png`)
   })
 })

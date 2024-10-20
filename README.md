@@ -4,6 +4,10 @@
 
 https://nodejs.org/en/download/package-manager
 
+Make sure you have those versions of nodeJS at least:
+
+Node.js 18.x, 20.x, 22.x and above.
+
 ## Create .env file in the root directory
 
 ```
@@ -33,8 +37,7 @@ Parallel mode:
 npm run e2e:parallel
 ```
 
-* obs: 1 scenario from login is expected to failed (Verifies user which contains problem on cart page). An issue was created in github, you can access it from _[/issues/](https://github.com/Rogatto/sauce-demo-testing/issues/5)_
-
+* obs: 1 scenario from login is expected to failed (Verifies user which contains problem on cart page). An issue was created on GitHub, you can see it from _[/issues/](https://github.com/Rogatto/sauce-demo-testing/issues/5)_
 
 
 ### Generate Allure Report:

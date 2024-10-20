@@ -1,4 +1,4 @@
-import { allureCypress } from "allure-cypress/reporter"
+import { allureCypress } from 'allure-cypress/reporter'
 import { defineConfig } from "cypress"
 import "dotenv/config"
 
